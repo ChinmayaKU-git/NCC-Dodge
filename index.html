@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NCC Dodge!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="login-screen" class="screen">
+                <h1>NCC Dodge!</h1>
+                <div class="form-container">
+                    <input type="text" id="username-input" placeholder="Username" />
+                    <input type="password" id="password-input" placeholder="Password" />
+                    <div class="auth-buttons">
+                        <button id="login-btn">Login</button>
+                        <button id="register-btn">Register</button>
+                    </div>
+                    <p id="auth-message"></p>
+                </div>
+            </div>
+
+            <div id="start-screen" class="screen hidden">
+                <h1>NCC Dodge!</h1>
+                <p>Logged in as: <span id="current-user-display">Guest</span></p>
+                <div class="leaderboard-container">
+                    <h3>Top 10 Players</h3>
+                    <ul id="leaderboard-list">
+                        <!-- Leaderboard items will be injected here -->
+                    </ul>
+                </div>
+                <p>Press SPACE or Tap to Jump</p>
+                <button id="start-btn">START GAME</button>
+                <button id="logout-btn" class="small-btn">Logout</button>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h1>Game Over</h1>
+                <p>Score: <span id="final-score">0</span></p>
+                <p>Your Best: <span id="best-score">0</span></p>
+                <button id="restart-btn">PLAY AGAIN</button>
+                <button id="menu-btn">MAIN MENU</button>
+            </div>
+            <div id="score-display" class="hidden">0</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

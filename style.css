@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    max-height: 800px;
+    background-color: #70c5ce;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    /* Stack screens */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    /* Slightly darker for better text contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #fca048;
+    text-shadow: 2px 2px #000;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+button {
+    background: #fca048;
+    border: 2px solid #fff;
+    color: white;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-shadow: 1px 1px #000;
+    transition: transform 0.1s;
+    margin-top: 10px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.small-btn {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    background: #e74c3c;
+    margin-top: 15px;
+}
+
+#score-display {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+    z-index: 10;
+}
+
+#final-score,
+#best-score {
+    color: #fca048;
+}
+
+/* Auth Styles */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+input {
+    padding: 12px;
+    font-family: inherit;
+    /* Use game font */
+    font-size: 0.8rem;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.9);
+    pointer-events: auto;
+    user-select: text;
+    /* Allow text selection in inputs */
+    -webkit-user-select: text;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#auth-message {
+    color: #ff6b6b;
+    font-size: 0.7rem;
+    min-height: 20px;
+    margin-top: 10px;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 320px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leaderboard-container h3 {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #fca048;
+    text-shadow: 1px 1px #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 0.7rem;
+}
+
+#leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+#leaderboard-list span.rank {
+    color: #fca048;
+    margin-right: 10px;
+}
+
+#leaderboard-list span.score {
+    color: #70c5ce;
+}
